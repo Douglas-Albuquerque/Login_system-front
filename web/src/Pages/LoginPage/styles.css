@@ -1,0 +1,34 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 2rem;
+}
+.login .form {
+  background-color: #f1f1f1;
+  width: 100%;
+  max-width: 30rem;
+  padding: 0.5rem;
+}
+
+.login .formField {
+  padding-bottom: 0.5rem;
+}
+
+.login .formField label {
+  display: block;
+}
+
+.login .formField input {
+  width: 100%;
+}
+
+.login .enterButton {
+  text-align: center;
+  margin-tom: 0.5 rem;
+}
+.enterButton :hover {
+  cursor: pointer;
+}
