@@ -1,9 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
+
+import { AuthContext } from '../../contexts/auth';
 
 const HomePage = () => {
+
+  const { logout } = useContext(AuthContext);
+
+  const handleLogout = () => {
+    logout();
+  }
+
   return (
-    <h1>Voce está Logado</h1>
-  );
+    <div>
+      <h1>Voce está Logado</h1>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  )
 };
 
 export default HomePage;
