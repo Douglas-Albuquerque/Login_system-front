@@ -1,14 +1,20 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import React, { createContext, useContext } from 'react';
+import React, { useContext } from 'react';
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
+import RegisterPage from '../Pages/RegisterPage';
 
 import { AuthProvider, AuthContext } from '../contexts/auth';
 
 
 const AppRoutes = () => {
   const Private = ({ children }) => {
-    const { authenticated } = useContext(AuthContext);
+    const { authenticated, loading } = useContext(AuthContext);
+
+    if (loading) {
+      return <div className="loading">Loading...</div>
+    }
+
     if (!authenticated) {
       return <Navigate to="/" />
     }
@@ -19,6 +25,7 @@ const AppRoutes = () => {
     <Router>
       <AuthProvider>
         <Routes>
+          <Route exact path='/register' element={<RegisterPage />} />
           <Route exact path="/" element={<LoginPage />} />
           <Route exact path="/Home"
             element={
