@@ -1,10 +1,11 @@
+import axios from 'axios';
 import React, { useState, useContext } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/auth';
-import "./styles.css"
+import "../LoginPage/styles.css"
 
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const navigate = useNavigate();
 
   const { login } = useContext
@@ -12,6 +13,8 @@ const LoginPage = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,14 +22,36 @@ const LoginPage = () => {
     login(email, password);
   }
 
-  const handleRegister = () => {
-    navigate("/register")
+  console.log();
+
+  const navLogin = () => {
+    navigate("/")
   }
 
   return (
     <div className='login'>
-      <h1 className='title'> Login do sistema</h1>
+      <h1 className='title'> Registro de Usuário</h1>
       <form className='form' onSubmit={handleSubmit}>
+        <div className='formField'>
+          <label htmlFor="name">First Name</label>
+          <input
+            type="name"
+            name='name'
+            className='nameInput'
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+        </div>
+        <div className='formField'>
+          <label htmlFor="lastName">Last Name</label>
+          <input
+            type="lastName"
+            name='lastName'
+            className='lastNameInput'
+            value={lastName}
+            onChange={(e) => setLastName(e.target.value)}
+          />
+        </div>
         <div className='formField'>
           <label htmlFor="email">Email</label>
           <input
@@ -47,17 +72,12 @@ const LoginPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className="containerButtons">
-          <div className='enterButton'>
-            <button type='submit'>Login</button>
-          </div>
-          <div className='registerButton'>
-            <button onClick={handleRegister}>Register</button>
-          </div>
+        <div className='enterButton'>
+          <button type='submit' onClick={navLogin}>Register</button>
         </div>
       </form>
     </div>
   );
-};
+}
 
-export default LoginPage;
+export default RegisterPage

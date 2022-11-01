@@ -28,7 +28,7 @@ class UsersController {
   }
   async create(req, res) {
     try {
-      const { email, password, name, lastname } = req.body;
+      const { email, password, name, lastName } = req.body;
 
       const user = await User.findOne({ email });
 
@@ -44,7 +44,7 @@ class UsersController {
         email,
         password: encryptedPassword,
         name,
-        lastname
+        lastName
       });
 
       return res.status(201).json(newUser);
@@ -56,7 +56,7 @@ class UsersController {
   async update(req, res) {
     try {
       const { id } = req.params;
-      const { email, password, name, lastname } = req.body;
+      const { email, password, name, lastName } = req.body;
 
       const user = await User.findById(id);
 
@@ -69,7 +69,7 @@ class UsersController {
         email,
         password: encryptedPassword,
         name,
-        lastname
+        lastName
       });
 
       return res.status(200).json();
