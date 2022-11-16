@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import "../LoginPage/styles.css"
-import { createUser } from "../../services/api"
+import { api } from "../../services/api"
 
 
 const RegisterPage = () => {
@@ -12,22 +12,47 @@ const RegisterPage = () => {
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const registerUser = async () => {
-    try {
-      await createUser(email, password, name, lastName)
-      alert("creado com sucesso");
-      navigate('/');
+  const register = async () => {
 
-    } catch (error) {
-      console.log("error");
+    const url = "/users/register"
+    const options = {
+      email: email,
+      password: password,
+      name: name,
+      lastName: lastName
     }
+    await api.post(url, options)
+      .then(
+        async response => {
 
-  };
+          console.log("Usuário Cadastrado", response.data);
+
+        }
+      )
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          alert(error.response.data.error);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+
+      });
+  }
+  const handleRegister = (e) => {
+    e.preventDefault();
+
+    register();
+  }
+
+
 
   return (
     <div className='login'>
       <h1 className='title'> Registro de Usuário</h1>
-      <form className='form'>
+      <form className='form' onSubmit={handleRegister}>
         <div className='formField'>
           <label htmlFor="name">First Name</label>
           <input
@@ -69,8 +94,11 @@ const RegisterPage = () => {
           />
         </div>
         <div className='enterButton'>
-          <button onClick={registerUser}>Register</button>
+          <button type="onSubmit">Register</button>
         </div>
+        {/* <div className='enterButton'>
+          <button onClick={handleLogin}>Login</button>
+        </div> */}
       </form>
     </div>
   );

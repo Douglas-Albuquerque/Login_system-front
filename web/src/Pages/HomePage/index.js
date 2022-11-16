@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 
+
 const HomePage = () => {
 
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ const HomePage = () => {
   }
 
   return (
-    <div>
+    <div className='login'>
       <h1>Bem vindo: {userData.name} {userData.lastName}</h1>
       <button className="logout" onClick={handleLogout}>Logout</button>
     </div>

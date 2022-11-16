@@ -14,7 +14,7 @@ class SessionController {
     let check = await checkPassword(user, password)
 
     if (!user) {
-      return res.status(401).json({ error: "User inavalid." })
+      return res.status(401).json({ error: "User or Passoword inavalid." })
     }
 
     if (!check) {
