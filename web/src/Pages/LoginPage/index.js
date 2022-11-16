@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { api } from "../../services/api"
-import "./styles.css"
+import { api } from "../../services/api";
+import "./styles.css";
 
 
 const LoginPage = () => {
@@ -21,18 +21,21 @@ const LoginPage = () => {
       .then(
         async response => {
           localStorage.setItem("token", response.data.token);
+          localStorage.setItem("user", JSON.stringify(response.data.user));
           navigate('/home');
-          console.log('user:', response.data.user);
         }
       )
       .catch(function (error) {
         if (error.response) {
           console.log(error.response.data.error);
+          alert(error.response.data.error);
+
         } else if (error.request) {
           console.log(error.request);
         } else {
           console.log('Error', error.message);
         }
+
       });
   }
 
