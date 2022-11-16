@@ -1,19 +1,13 @@
-import React, { useContext } from 'react'
-
-import { AuthContext } from '../../contexts/auth';
 
 const HomePage = () => {
 
-  const { logout } = useContext(AuthContext);
+  const getToken = localStorage.getItem("token");
 
-  const handleLogout = () => {
-    logout();
-  }
+  console.log("token ok", getToken);
 
   return (
     <div>
       <h1>Voce está Logado</h1>
-      <button onClick={handleLogout}>Logout</button>
     </div>
   )
 };

@@ -1,37 +1,33 @@
-import axios from 'axios';
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth';
 import "../LoginPage/styles.css"
+import { createUser } from "../../services/api"
 
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-
-  const { login } = useContext
-    (AuthContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const registerUser = async () => {
+    try {
+      await createUser(email, password, name, lastName)
+      alert("creado com sucesso");
+      navigate('/');
 
-    login(email, password);
-  }
+    } catch (error) {
+      console.log("error");
+    }
 
-  console.log();
-
-  const navLogin = () => {
-    navigate("/")
-  }
+  };
 
   return (
     <div className='login'>
       <h1 className='title'> Registro de Usuário</h1>
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form'>
         <div className='formField'>
           <label htmlFor="name">First Name</label>
           <input
@@ -73,7 +69,7 @@ const RegisterPage = () => {
           />
         </div>
         <div className='enterButton'>
-          <button type='submit' onClick={navLogin}>Register</button>
+          <button onClick={registerUser}>Register</button>
         </div>
       </form>
     </div>

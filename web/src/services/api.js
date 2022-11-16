@@ -9,6 +9,6 @@ export const createSession = async (email, password) => {
   return api.post("/sessions", { email, password })
 };
 
-export const creatUser = async (email, password, name, lastName) => {
-  return api.post("/users", { email, password, name, lastName })
+export const createUser = async (email, password, name, lastName) => {
+  return api.post("/users/register", { email, password, name, lastName })
 };

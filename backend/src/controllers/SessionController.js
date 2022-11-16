@@ -20,12 +20,14 @@ class SessionController {
     if (!check) {
       return res.status(401).json({ error: "User or Passoword inavalid." })
     }
-    const { id } = user;
+    const { id, name, lastName } = user;
 
     return res.json({
       user: {
         id: id,
-        email
+        email,
+        name,
+        lastName
       },
       token: jwt.sign({ id }, authConfig.secret, {
         expiresIn: authConfig.expiresIn,

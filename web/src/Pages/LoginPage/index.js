@@ -1,22 +1,45 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth';
+import { api } from "../../services/api"
 import "./styles.css"
 
 
 const LoginPage = () => {
   const navigate = useNavigate();
-
-  const { login } = useContext
-    (AuthContext);
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
+  const login = async () => {
+
+
+    const url = "/sessions"
+    const options = {
+      email: email,
+      password: password
+    }
+    await api.post(url, options)
+      .then(
+        async response => {
+          localStorage.setItem("token", response.data.token);
+          navigate('/home');
+          console.log('user:', response.data.user);
+        }
+      )
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data.error);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+      });
+  }
+
+  const handleLogin = (e) => {
     e.preventDefault();
 
-    login(email, password);
+    login();
   }
 
   const handleRegister = () => {
@@ -26,7 +49,7 @@ const LoginPage = () => {
   return (
     <div className='login'>
       <h1 className='title'> Login do sistema</h1>
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleLogin}>
         <div className='formField'>
           <label htmlFor="email">Email</label>
           <input
@@ -49,7 +72,7 @@ const LoginPage = () => {
         </div>
         <div className="containerButtons">
           <div className='enterButton'>
-            <button type='submit'>Login</button>
+            <button type='onSubmit'>Login</button>
           </div>
           <div className='registerButton'>
             <button onClick={handleRegister}>Register</button>
