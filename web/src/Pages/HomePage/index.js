@@ -1,19 +1,23 @@
-import React, { useContext } from 'react'
+import { useNavigate } from 'react-router-dom';
 
-import { AuthContext } from '../../contexts/auth';
 
 const HomePage = () => {
 
-  const { logout } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const getToken = localStorage.getItem("token");
+  const getUser = localStorage.getItem("user");
+
+  const userData = JSON.parse(getUser);
 
   const handleLogout = () => {
-    logout();
+    localStorage.clear();
+    navigate("/")
   }
 
   return (
-    <div>
-      <h1>Voce está Logado</h1>
-      <button onClick={handleLogout}>Logout</button>
+    <div className='login'>
+      <h1>Bem vindo: {userData.name} {userData.lastName}</h1>
+      <button className="logout" onClick={handleLogout}>Logout</button>
     </div>
   )
 };

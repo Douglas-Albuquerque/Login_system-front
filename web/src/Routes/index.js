@@ -1,40 +1,31 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import React, { useContext } from 'react';
 import HomePage from '../Pages/HomePage';
 import LoginPage from '../Pages/LoginPage';
 import RegisterPage from '../Pages/RegisterPage';
 
-import { AuthProvider, AuthContext } from '../contexts/auth';
+export const PrivateRoute = ({ children }) => {
 
+  const isAuthenticated = localStorage.getItem("token");
 
-const AppRoutes = () => {
-  const Private = ({ children }) => {
-    const { authenticated, loading } = useContext(AuthContext);
-
-    if (loading) {
-      return <div className="loading">Loading...</div>
-    }
-
-    if (!authenticated) {
-      return <Navigate to="/" />
-    }
-    return children;
+  if (isAuthenticated == false || isAuthenticated == "" || isAuthenticated == null) {
+    return <Navigate to="/" />
+  } else {
+    return children
   }
+}
+const AppRoutes = () => {
 
   return (
     <Router>
-      <AuthProvider>
-        <Routes>
-          <Route exact path='/register' element={<RegisterPage />} />
-          <Route exact path="/" element={<LoginPage />} />
-          <Route exact path="/Home"
-            element={
-              <Private>
-                <HomePage />
-              </Private>
-            } />
-        </Routes>
-      </AuthProvider>
+      <Routes>
+        <Route path='/register' element={<RegisterPage />} />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/Home" element={
+          <PrivateRoute>
+            <HomePage />
+          </PrivateRoute>
+        } />
+      </Routes>
     </Router>
   );
 };

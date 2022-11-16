@@ -1,37 +1,58 @@
-import axios from 'axios';
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../contexts/auth';
 import "../LoginPage/styles.css"
+import { api } from "../../services/api"
 
 
 const RegisterPage = () => {
   const navigate = useNavigate();
-
-  const { login } = useContext
-    (AuthContext);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
   const [lastName, setLastName] = useState('');
 
-  const handleSubmit = (e) => {
+  const register = async () => {
+
+    const url = "/users/register"
+    const options = {
+      email: email,
+      password: password,
+      name: name,
+      lastName: lastName
+    }
+    await api.post(url, options)
+      .then(
+        async response => {
+
+          console.log("Usuário Cadastrado", response.data);
+
+        }
+      )
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          alert(error.response.data.error);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+
+      });
+  }
+  const handleRegister = (e) => {
     e.preventDefault();
 
-    login(email, password);
+    register();
   }
 
-  console.log();
 
-  const navLogin = () => {
-    navigate("/")
-  }
 
   return (
     <div className='login'>
       <h1 className='title'> Registro de Usuário</h1>
-      <form className='form' onSubmit={handleSubmit}>
+      <form className='form' onSubmit={handleRegister}>
         <div className='formField'>
           <label htmlFor="name">First Name</label>
           <input
@@ -73,8 +94,11 @@ const RegisterPage = () => {
           />
         </div>
         <div className='enterButton'>
-          <button type='submit' onClick={navLogin}>Register</button>
+          <button type="onSubmit">Register</button>
         </div>
+        {/* <div className='enterButton'>
+          <button onClick={handleLogin}>Login</button>
+        </div> */}
       </form>
     </div>
   );
