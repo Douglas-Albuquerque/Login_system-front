@@ -25,7 +25,8 @@ const RegisterPage = () => {
       .then(
         async response => {
 
-          console.log("Usuário Cadastrado", response.data);
+          alert(response.data.message);
+          navigate("/")
 
         }
       )
@@ -46,7 +47,9 @@ const RegisterPage = () => {
 
     register();
   }
-
+  const handleLogin = () => {
+    navigate("/")
+  }
 
 
   return (
@@ -96,9 +99,9 @@ const RegisterPage = () => {
         <div className='enterButton'>
           <button type="onSubmit">Register</button>
         </div>
-        {/* <div className='enterButton'>
+        <div className='enterButton'>
           <button onClick={handleLogin}>Login</button>
-        </div> */}
+        </div>
       </form>
     </div>
   );

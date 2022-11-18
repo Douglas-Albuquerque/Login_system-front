@@ -7,7 +7,7 @@ export const PrivateRoute = ({ children }) => {
 
   const isAuthenticated = localStorage.getItem("token");
 
-  if (isAuthenticated == false || isAuthenticated == "" || isAuthenticated == null) {
+  if (isAuthenticated === false || isAuthenticated === "" || isAuthenticated === null) {
     return <Navigate to="/" />
   } else {
     return children

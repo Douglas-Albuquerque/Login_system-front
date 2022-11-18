@@ -10,8 +10,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [msg, setMsg] = useState('');
-  const [logged, setLogged] = useState(false);
+
 
   const login = async () => {
 
