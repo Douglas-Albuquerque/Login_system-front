@@ -5,10 +5,10 @@
   justify-content: center;
   min-height: 100vh;
   padding: 0 2rem;
-  background-color: #f1f1f1f;
+  background: #7fffd4;
 }
 .login .form {
-  background-color: #ffc0cb;
+  background-color: #f5f5dc;
   width: 100%;
   max-width: 25rem;
   padding: 0.5rem;
@@ -32,20 +32,31 @@
   width: 15rem;
 }
 
-.login .enterButton {
+.login .loginButton {
   text-align: center;
-  margin-tom: 0.5 rem;
+  margin-right: 1.5rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #3f33bd;
+  font-weight: bold;
+  width: 5rem;
+  height: 1.5rem;
+  color: #fff;
 }
-.enterButton :hover {
-  cursor: pointer;
-}
-.registerButton :hover {
+.hoverButton :hover {
   cursor: pointer;
 }
 
 .registerButton {
   text-align: center;
-  margin-tom: 0.5 rem;
+  margin-top: 0.5 rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #3f33bd;
+  color: white;
+  font-weight: bold;
+  width: 5rem;
+  height: 1.5rem;
 }
 
 .containerButtons {
@@ -54,31 +65,11 @@
   width: 10rem;
   margin: 0 7rem;
 }
-/* .errLogin {
-  position: absosolute;
-  z-index: 900;
-  top: 1rem;
-  right: 1rem;
+.title {
+  color: transparent;
+  background: #000;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
 }
-.msgErr {
-  background-color: black;
-  text: center;
-  color: #fff;
-  padding: 10px 20px;
-  border-radius: 10px;
-  animation: effect 1s ease forwards;
-}
-@keyframes {
-  0% {
-    transform: translateX(100%);
-  }
-  40% {
-    transform: translateX(-10%);
-  }
-  80% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(100px);
-  }
-} */

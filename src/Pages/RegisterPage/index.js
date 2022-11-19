@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
-import "../LoginPage/styles.css"
+import "../../styles/styles.css"
 import { api } from "../../services/api"
 
 
@@ -26,7 +26,7 @@ const RegisterPage = () => {
         async response => {
 
           alert(response.data.message);
-          navigate("/")
+          navigate("/");
 
         }
       )
@@ -54,7 +54,7 @@ const RegisterPage = () => {
 
   return (
     <div className='login'>
-      <h1 className='title'> Registro de Usuário</h1>
+      <h1 className='title'> USER REGISTER</h1>
       <form className='form' onSubmit={handleRegister}>
         <div className='formField'>
           <label htmlFor="name">First Name</label>
@@ -96,11 +96,13 @@ const RegisterPage = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <div className='enterButton'>
-          <button type="onSubmit">Register</button>
-        </div>
-        <div className='enterButton'>
-          <button onClick={handleLogin}>Login</button>
+        <div className="containerButtons">
+          <div className='hoverButton'>
+            <button className='loginButton' onClick={handleLogin}>Login</button>
+          </div>
+          <div className='hoverButton'>
+            <button className='registerButton' type="onSubmit">Register</button>
+          </div>
         </div>
       </form>
     </div>

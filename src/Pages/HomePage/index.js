@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import "../../styles/styles.css"
 
 
 const HomePage = () => {
@@ -16,8 +17,10 @@ const HomePage = () => {
 
   return (
     <div className='login'>
-      <h1>Bem vindo: {userData.name} {userData.lastName}</h1>
-      <button className="logout" onClick={handleLogout}>Logout</button>
+      <div className="form">
+        <h1 className='title'>Bem vindo: {userData.name} {userData.lastName}</h1>
+        <button className="loginButton" onClick={handleLogout}>Logout</button>
+      </div>
     </div>
   )
 };

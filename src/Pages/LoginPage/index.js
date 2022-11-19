@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../services/api";
-import "./styles.css";
+import "../../styles/styles.css"
 
 
 
@@ -53,13 +53,7 @@ const LoginPage = () => {
 
   return (
     <div className='login'>
-      {/* {
-        (logged == true) &&
-        <div className="errLogin">
-          <p className='msgErr'>Usuário ou senha errado</p>
-        </div>
-      } */}
-      <h1 className='title'> Login do sistema</h1>
+      <h1 className='title'> LOGIN SYSTEM</h1>
       <form className='form' onSubmit={handleLogin}>
         <div className='formField'>
           <label htmlFor="email">Email</label>
@@ -82,11 +76,11 @@ const LoginPage = () => {
           />
         </div>
         <div className="containerButtons">
-          <div className='enterButton'>
-            <button type='onSubmit'>Login</button>
+          <div className='hoverButton'>
+            <button className='loginButton' type='onSubmit'>Login</button>
           </div>
-          <div className='registerButton'>
-            <button onClick={handleRegister}>Register</button>
+          <div className='hoverButton'>
+            <button className='registerButton' onClick={handleRegister}>Register</button>
           </div>
         </div>
       </form>
