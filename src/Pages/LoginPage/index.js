@@ -6,6 +6,7 @@ import "../../styles/styles.css"
 
 
 
+
 const LoginPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -52,38 +53,38 @@ const LoginPage = () => {
   }
 
   return (
-    <div className='login'>
-      <h1 className='title'> LOGIN SYSTEM</h1>
-      <form className='form' onSubmit={handleLogin}>
-        <div className='formField'>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name='email'
-            className='emailInput'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className='formField'>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name='password'
-            className='passwordInput'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="containerButtons">
-          <div className='hoverButton'>
-            <button className='loginButton' type='onSubmit'>Login</button>
+    <div className="art">
+      <div className='login'>
+        <p className="register">Not a member?<a onClick={handleRegister}>Sing up now</a></p>
+        <h1 className='title'> LOGIN SYSTEM</h1>
+        <form className='form' onSubmit={handleLogin}>
+          <div className='formField'>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name='email'
+              className='fieldInput'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <div className='hoverButton'>
-            <button className='registerButton' onClick={handleRegister}>Register</button>
+          <div className='formField'>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name='password'
+              className='fieldInput'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-        </div>
-      </form>
+          <div className="containerButtons">
+            <div className='hoverButton'>
+              <button className='loginButton' type='onSubmit'>Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };

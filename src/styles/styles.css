@@ -1,3 +1,10 @@
+.art {
+  display: flex;
+  background-color: yellow;
+  justify-content: flex-end;
+  background-image: url(../assets/background1.png);
+  height: 100%;
+}
 .login {
   display: flex;
   flex-direction: column;
@@ -5,34 +12,35 @@
   justify-content: center;
   min-height: 100vh;
   padding: 0 2rem;
-  background: #7fffd4;
+  background: #ffffff;
+  width: 70rem;
 }
-.login .form {
-  background-color: #f5f5dc;
+.form {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   max-width: 25rem;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  padding: 10rem;
   text-align: center;
   align-items: center;
-  -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+  border: 0.01rem solid black;
 }
 
-.login .formField {
-  padding-bottom: 0.5rem;
+.formField {
+  padding-bottom: 1.5rem;
 }
 
-.login .formField label {
+.formField label {
   display: block;
 }
 
-.login .formField input {
+.formField input {
   width: 15rem;
 }
-
-.login .loginButton {
+.fieldInput {
+  background-color: yellow;
+}
+.loginButton {
   text-align: center;
   margin-right: 1.5rem;
   border-radius: 0.5rem;
@@ -40,7 +48,7 @@
   background-color: #3f33bd;
   font-weight: bold;
   width: 5rem;
-  height: 1.5rem;
+  height: 2.5rem;
   color: #fff;
 }
 .hoverButton :hover {
@@ -56,7 +64,7 @@
   color: white;
   font-weight: bold;
   width: 5rem;
-  height: 1.5rem;
+  height: 2.5rem;
 }
 
 .containerButtons {
@@ -66,10 +74,5 @@
   margin: 0 7rem;
 }
 .title {
-  color: transparent;
-  background: #000;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  background-clip: text;
-  text-shadow: 0px 3px 3px rgba(255, 255, 255, 0.5);
+  color: #FFFFF;
 }
