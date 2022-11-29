@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../services/api";
 import "../../styles/styles.css"
+import img1 from '../../assets/background1.png'
 
 
 
@@ -48,14 +49,15 @@ const LoginPage = () => {
     login();
   }
 
-  const handleRegister = () => {
-    navigate("/register")
-  }
+  // const handleRegister = () => {
+  //   navigate("/register")
+  // }
 
   return (
     <div className="art">
+      <img src={img1} alt="imagem ilustrativa" />
       <div className='login'>
-        <p className="register">Not a member?<a onClick={handleRegister}>Sing up now</a></p>
+        <p className="register">Not a member? <a href="/register">Sing up now</a></p>
         <h1 className='title'> LOGIN SYSTEM</h1>
         <form className='form' onSubmit={handleLogin}>
           <div className='formField'>
