@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../services/api";
 import "../../styles/styles.css"
+import img1 from '../../assets/background1.png'
+
 
 
 
@@ -47,43 +49,44 @@ const LoginPage = () => {
     login();
   }
 
-  const handleRegister = () => {
-    navigate("/register")
-  }
+  // const handleRegister = () => {
+  //   navigate("/register")
+  // }
 
   return (
-    <div className='login'>
-      <h1 className='title'> LOGIN SYSTEM</h1>
-      <form className='form' onSubmit={handleLogin}>
-        <div className='formField'>
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            name='email'
-            className='emailInput'
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className='formField'>
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            name='password'
-            className='passwordInput'
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="containerButtons">
-          <div className='hoverButton'>
-            <button className='loginButton' type='onSubmit'>Login</button>
+    <div className="art">
+      <img src={img1} alt="imagem ilustrativa" />
+      <div className='login'>
+        <p className="register">Not a member? <a href="/register">Sing up now</a></p>
+        <h1 className='title'> LOGIN SYSTEM</h1>
+        <form className='form' onSubmit={handleLogin}>
+          <div className='formField'>
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              name='email'
+              className='fieldInput'
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
           </div>
-          <div className='hoverButton'>
-            <button className='registerButton' onClick={handleRegister}>Register</button>
+          <div className='formField'>
+            <label htmlFor="password">Password</label>
+            <input
+              type="password"
+              name='password'
+              className='fieldInput'
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
           </div>
-        </div>
-      </form>
+          <div className="containerButtons">
+            <div className='hoverButton'>
+              <button className='loginButton' type='onSubmit'>Login</button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
