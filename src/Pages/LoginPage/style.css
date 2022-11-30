@@ -1,4 +1,8 @@
-.homeContainer {
+.container {
+  display: flex;
+  flex: 1;
+}
+.loginContainer {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -6,16 +10,40 @@
   justify-content: center;
   min-height: 100vh;
   padding: 0 2rem;
+  background: #ffffff;
   width: 93.75rem;
 }
-.homeBox {
+.form {
   display: flex;
+  flex-direction: column;
+  max-width: 25rem;
   padding: 5rem;
   align-items: center;
-  flex-direction: column;
 }
-.logoutButton {
+.singUpText {
+  margin: 0 0 1rem 50rem;
+}
+.singUpText span {
+  color: blue;
+}
+
+.formField {
+  padding-bottom: 1.5rem;
+}
+
+.fieldInput {
+  border: 0.01rem solid #d3d3d3;
+  outline: none;
+  height: 2rem;
+  width: 20rem;
+  padding: 0.5rem;
+  border-radius: 0.2rem;
+  margin-top: 0.5rem;
+  background-color: #dfe4fc;
+}
+.registerButton {
   text-align: center;
+  margin-right: 10rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
   border: none;
@@ -25,7 +53,6 @@
   height: 2.5rem;
   color: #fff;
 }
-
 .hoverButton :hover {
   cursor: pointer;
   background-color: #ab3f3f;

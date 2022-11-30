@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../services/api";
-import "../../styles/styles.css"
+import "./style.css"
 import img1 from '../../assets/background1.png'
 
 

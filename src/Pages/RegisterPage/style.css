@@ -2,17 +2,7 @@
   display: flex;
   flex: 1;
 }
-.loginContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 0 2rem;
-  background: #ffffff;
-  width: 93.75rem;
-}
+
 .registerContainer {
   display: flex;
   flex: 1;
@@ -24,38 +14,12 @@
   background: #ffffff;
   width: 93.75rem;
 }
-.homeContainer {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  padding: 0 2rem;
-  width: 93.75rem;
-}
-.homeBox {
-  display: flex;
-  padding: 5rem;
-  align-items: center;
-  flex-direction: column;
-}
 .form {
   display: flex;
   flex-direction: column;
   max-width: 25rem;
   padding: 5rem;
   align-items: center;
-}
-.singUpText {
-  margin: 0 0 1rem 50rem;
-}
-.singUpText span {
-  color: blue;
-}
-
-.singUpText :hover {
-  cursor: pointer;
 }
 .singInText {
   margin: 0 0 1rem 50rem;
@@ -94,30 +58,6 @@
   height: 2.5rem;
   color: #fff;
 }
-.registerButton {
-  text-align: center;
-  margin-right: 10rem;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: #c15c5c;
-  font-weight: bold;
-  width: 10rem;
-  height: 2.5rem;
-  color: #fff;
-}
-.logoutButton {
-  text-align: center;
-  margin-top: 1rem;
-  border-radius: 0.5rem;
-  border: none;
-  background-color: #c15c5c;
-  font-weight: bold;
-  width: 10rem;
-  height: 2.5rem;
-  color: #fff;
-}
-
 .hoverButton :hover {
   cursor: pointer;
   background-color: #ab3f3f;

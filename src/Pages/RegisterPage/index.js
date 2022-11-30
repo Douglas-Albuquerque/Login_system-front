@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { api } from "../../services/api"
 
-import "../../styles/styles.css"
+import "./style.css"
 import img2 from '../../assets/background2.png'
 
 const RegisterPage = () => {
