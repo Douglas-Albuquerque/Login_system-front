@@ -1,8 +1,8 @@
-.art {
+.container {
   display: flex;
   flex: 1;
 }
-.login {
+.loginContainer {
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -13,6 +13,33 @@
   background: #ffffff;
   width: 93.75rem;
 }
+.registerContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 2rem;
+  background: #ffffff;
+  width: 93.75rem;
+}
+.homeContainer {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 0 2rem;
+  width: 93.75rem;
+}
+.homeBox {
+  display: flex;
+  padding: 5rem;
+  align-items: center;
+  flex-direction: column;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -20,14 +47,24 @@
   padding: 5rem;
   align-items: center;
 }
-.register {
+.singUpText {
   margin: 0 0 1rem 50rem;
 }
-.register a {
+.singUpText span {
   color: blue;
 }
 
-.register :hover {
+.singUpText :hover {
+  cursor: pointer;
+}
+.singInText {
+  margin: 0 0 1rem 50rem;
+}
+.singInText span {
+  color: blue;
+}
+
+.singInText :hover {
   cursor: pointer;
 }
 
@@ -57,6 +94,30 @@
   height: 2.5rem;
   color: #fff;
 }
+.registerButton {
+  text-align: center;
+  margin-right: 10rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #c15c5c;
+  font-weight: bold;
+  width: 10rem;
+  height: 2.5rem;
+  color: #fff;
+}
+.logoutButton {
+  text-align: center;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  background-color: #c15c5c;
+  font-weight: bold;
+  width: 10rem;
+  height: 2.5rem;
+  color: #fff;
+}
+
 .hoverButton :hover {
   cursor: pointer;
   background-color: #ab3f3f;

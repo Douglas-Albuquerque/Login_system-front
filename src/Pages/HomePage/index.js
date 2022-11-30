@@ -1,5 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import "../../styles/styles.css"
+import img1 from '../../assets/background1.png'
+import img2 from '../../assets/background2.png'
 
 
 const HomePage = () => {
@@ -16,10 +18,13 @@ const HomePage = () => {
   }
 
   return (
-    <div className='login'>
-      <div className="form">
-        <h1 className='title'>Bem vindo: {userData.name} {userData.lastName}</h1>
-        <button className="loginButton" onClick={handleLogout}>Logout</button>
+    <div className='homeContainer'>
+      <div className="homeBox">
+        <h1 className='title'>Bem vindo: </h1>
+        <h1 className='title'>{userData.name} {userData.lastName}</h1>
+        <div className="hoverButton">
+          <button className="logoutButton" onClick={handleLogout}>Logout</button>
+        </div>
       </div>
     </div>
   )
