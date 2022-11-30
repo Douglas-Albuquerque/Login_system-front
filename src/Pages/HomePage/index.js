@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import "../../styles/styles.css"
-import img1 from '../../assets/background1.png'
-import img2 from '../../assets/background2.png'
+
 
 
 const HomePage = () => {
